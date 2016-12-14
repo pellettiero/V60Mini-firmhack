@@ -4,6 +4,9 @@ A project to disassemble the KBParadise V60 Mini keyboard firmware.
 With help from Jeroen ([Spritetm](https://www.reddit.com/user/Spritetm)) at http://spritesmods.com/.   
 Without his help, this project would not have been possible. Thanks man!
 
+##HOW TO USE
+Run the `getflashimg.sh` script with the firmware (`cykb112_v107.exe`) as argument.
+
 ##NOTES##
 * Official flashing tool compares last two bytes of firmware to find the XOR encryption key
 * 0x0023c1 contains the following string, where each letter takes up a byte: "USB-HID Keyboard"
