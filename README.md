@@ -11,10 +11,10 @@ Without your help, this project would not have been possible. Thanks everyone!
 ### WARNING! USE THIS AT YOUR OWN RISK!
 
 ## Roadmap
-[x] Find a way to decrypt firmware from updater
-[x] Mod updater to unlock keyboard and permit flash being read
-[x] Unlock keyboard and dump flash
-[] Find bootloader XOR encryption key in disassembled bootloader
+ - [x] Find a way to decrypt firmware from updater
+ - [x] Mod updater to unlock keyboard and permit flash being read
+ - [x] Unlock keyboard and dump flash
+ - [ ] Find bootloader XOR encryption key in disassembled bootloader
 
 ## Notes
 * Official flashing tool compares last two bytes of firmware to find the XOR encryption key
