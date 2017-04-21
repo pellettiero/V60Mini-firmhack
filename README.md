@@ -20,6 +20,7 @@ Use the updater from Windows to update the keyboard if not already done.
 
 You need the original v60Mini updater executable **(v1.0.7)** from the Facebook page to do the
 following.
+
 *TODO: Download this automatically?*
 
 * If you want to **decrypt the updater**:
@@ -33,15 +34,16 @@ following.
   $ updater_patcher.sh cykb112_v107.exe
   ```
   Get the output executable from the directory and run it on Windows with admin
-  permissions.
+  permissions.         
   Fingers crossed!
   *(Still working on a way to do this from Linux itself, I need to find out the
   bootloader XOR key for that)*
+  
   The patched updater is checked with SHA1 to avoid arbitrary fuckups.
-  Check this issue to get an explanation of how the unlock works:
+  Check this issue to get an explanation of how the unlock works:        
   https://github.com/ChaoticConundrum/pok3r_re_firmware/issues/4
 
-  You can try to dump the flash by using ChaoticConundrum's `pok3rtool`:
+  You can try to dump the flash by using ChaoticConundrum's `pok3rtool`:       
   *TODO*
 
 ## Roadmap
