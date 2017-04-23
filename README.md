@@ -24,33 +24,46 @@ following.
 *TODO: Download this automatically?*
 
 * If you want to **decrypt the updater**:
-  ```
-  $ updater_decrypt.sh cykb112_v107.exe
-  ```
-  You can disassemble the decrypted file with `disassemble.sh`.
-
+    ```
+    $ updater_decrypt.sh cykb112_v107.exe
+    ```
+    You can disassemble the decrypted file with `disassemble.sh`.
+    
 * If you instead want to **unlock the keyboard**:
-  ```
-  $ updater_patcher.sh cykb112_v107.exe
-  ```
-  Get the output executable from the directory and run it on Windows with admin
-  permissions.         
-  Fingers crossed!
-  *(Still working on a way to do this from Linux itself, I need to find out the
-  bootloader XOR key for that)*
+    ```
+    $ updater_patcher.sh cykb112_v107.exe
+    ```
+    Get the output executable from the directory and run it on Windows with admin
+    permissions.         
+    Fingers crossed!
+    *(Still working on a way to do this from Linux itself)*
   
-  The patched updater is checked with SHA1 to avoid arbitrary fuckups.
-  Check this issue to get an explanation of how the unlock works:        
-  https://github.com/ChaoticConundrum/pok3r_re_firmware/issues/4
+    The patched updater is checked with SHA1 to avoid arbitrary fuckups.
+    Check this issue to get an explanation of how the unlock works:        
+    https://github.com/ChaoticConundrum/pok3r_re_firmware/issues/4
 
-  You can try to dump the flash by using ChaoticConundrum's `pok3rtool`:       
-  *TODO*
+    You can then try to dump the flash by using my modified fork of ChaoticConundrum's `pok3rtool`:       
+    1. Clone the repo
+    ```
+    $ git clone https://github.com/pellettiero/pok3rtool-v60mini
+    ```
+    2. Build
+    ```
+    $ cd pok3rtool-v60mini
+    $ git submodule update --init && cmake . && make
+    ```
+    3. Dump flash
+    ```
+    $ sudo ./pok3rtool -t pok3r dump flash.bin
+    ```
 
 ## Roadmap
  - [x] Find a way to decrypt firmware from updater
  - [x] Mod updater to unlock keyboard and permit flash being read
  - [x] Unlock keyboard and dump flash
- - [ ] Find bootloader XOR encryption key in disassembled bootloader
+ - [x] Find bootloader XOR encryption key in disassembled bootloader
+ - [ ] Find out how the USB packets are encrypted
+ - [ ] Custom firmware?
 
 ## Notes
 * Official flashing tool compares last two bytes of firmware to find the XOR encryption key
