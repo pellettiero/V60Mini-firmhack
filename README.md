@@ -15,8 +15,12 @@ brick!
 # !WARNING! USE THIS AT YOUR OWN RISK!
 
 ## Usage & How To
-**First, make sure your keyboard is on firmware 1.0.7! THIS IS VERY IMPORTANT!**
-Use the updater from Windows to update the keyboard if not already done.
+**First, make sure your keyboard is:**
+* **ANSI US version**
+* **on firmware 1.0.7**    
+
+**THIS IS VERY IMPORTANT!**     
+**Use the updater from Windows to update the keyboard if not already done.**
 
 You need the original v60Mini updater executable **(v1.0.7)** from the Facebook page to do the
 following.
