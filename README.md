@@ -17,9 +17,9 @@ brick!
 ## Usage & How To
 **First, make sure your keyboard is:**
 * **ANSI US version**
-* **on firmware 1.0.7**    
+* **on firmware 1.0.7**  
 
-**THIS IS VERY IMPORTANT!**     
+**THIS IS VERY IMPORTANT!**  
 **Use the updater from Windows to update the keyboard if not already done.**
 
 You need the original v60Mini updater executable **(v1.0.7)** from the Facebook page to do the
@@ -32,42 +32,45 @@ following.
     $ updater_decrypt.sh cykb112_v107.exe
     ```
     You can disassemble the decrypted file with `disassemble.sh`.
-    
+
 * If you instead want to **unlock the keyboard**:
     ```
     $ updater_patcher.sh cykb112_v107.exe
     ```
     Get the output executable from the directory and run it on Windows with admin
-    permissions.         
+    permissions.  
     Fingers crossed!
     *(Still working on a way to do this from Linux itself)*
-  
-    The patched updater is checked with SHA1 to avoid arbitrary fuckups.
-    Check this issue to get an explanation of how the unlock works:        
+
+    The patched updater is checked with SHA1 to avoid arbitrary fuckups.  
+    Check this issue to get an explanation of how the unlock works:  
     https://github.com/ChaoticConundrum/pok3r_re_firmware/issues/4
 
-    You can then try to dump the flash by using my modified fork of ChaoticConundrum's `pok3rtool`:       
+    You can then try to dump the flash by using ChaoticConundrum's `pok3rtool`:
+
     1. Clone the repo
     ```
-    $ git clone https://github.com/pellettiero/pok3rtool-v60mini
+    $ git clone https://github.com/ChaoticConundrum/pok3r_re_firmware
     ```
     2. Build
     ```
-    $ cd pok3rtool-v60mini
-    $ git submodule update --init && cmake . && make
+    $ cd pok3r_re_firmware/pok3rtool
+    $ git submodule update --init && cmake . && make pok3rtool
     ```
     3. Dump flash
     ```
-    $ sudo ./pok3rtool -t pok3r dump flash.bin
+    $ sudo ./pok3rtool -t v60mini dump flash.bin
     ```
+    Now you have a backup of the entire flash! Store this in a safe place, just in case of bricks.  
+    It can be restored using a JTAG programmer/debugger.
 
 ## Roadmap
  - [x] Find a way to decrypt firmware from updater
- - [x] Mod updater to unlock keyboard and permit flash being read
+ - [x] Mod updater to unlock keyboard and allow reading flash
  - [x] Unlock keyboard and dump flash
- - [x] Find bootloader XOR encryption key in disassembled bootloader
- - [ ] Find out how the USB packets are encrypted
- - [ ] Custom firmware?
+ - [x] Find bootloader XOR encryption key in disassembled bootloader *(same as pok3r)*
+ - [x] ~~Find out how the USB packets are encrypted~~ No need, works natively with pok3r commands
+ - [ ] Custom firmware? **WIP**
 
 ## Notes
 * Official flashing tool compares last two bytes of firmware to find the XOR encryption key
